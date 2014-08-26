@@ -1,0 +1,196 @@
+//表格样式
+table {
+  max-width: 100%;
+  background-color: @table-bg;
+}
+th {
+  text-align: left;
+  font-size: @font-size-original;
+  font-weight: 500;
+}
+
+.table{
+	width: 100%;
+	margin-bottom: @line-height-computed;
+	//单元格样式
+	  > thead,
+	  > tbody,
+	  > tfoot {
+	    > tr {
+	      > th,
+	      > td {
+	        padding: @table-cell-padding;
+	        line-height: @line-height-base;
+	        //vertical-align: top;
+	        border-top: 1px solid @table-border-color;
+	      }
+        > th{
+          vertical-align: bottom;
+        }
+        > td{
+          vertical-align: middle;
+        }
+	    }
+	  }
+	 //表格头部默认水平向下对齐
+	  > thead > tr > th {
+	      vertical-align: bottom;
+	      border-bottom: 2px solid @table-border-color;
+      }
+     // 移除thead默认边框
+	  > caption + thead,
+	  > colgroup + thead,
+	  > thead:first-child {
+	    > tr:first-child {
+	      > th,
+	      > td {
+	        border-top: 0;
+	      }
+	    }
+	  }
+	  // 多个tbody情况
+	  > tbody + tbody {
+	    border-top: 2px solid @table-border-color;
+	  }
+	  // 嵌套
+	  .table {
+	    background-color: @body-bg;
+	    margin-bottom: 0;
+      thead > tr > th{
+        font-size: @font-size-base;
+      }
+	  }
+}
+// 压缩样式表格: 内边距压缩
+
+.table-condensed {
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        padding: @table-condensed-cell-padding;
+      }
+    }
+  }
+}
+
+
+
+// 带有边框的表格
+//
+// 给table的整个外边和行列加上边框
+
+.table-bordered {
+  border: 1px solid @table-border-color;
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        border: 1px solid @table-border-color;
+      }
+    }
+  }
+  > thead > tr {
+    > th,
+    > td {
+      border-bottom-width: 2px;
+    }
+  }
+}
+
+
+// 间隔线样式
+//
+// 表格间隔加色样式
+
+.table-striped {
+  > tbody > tr:nth-child(odd) {
+    > td,
+    > th {
+      background-color: @table-bg-accent;
+    }
+  }
+}
+
+
+// 划上样式
+//
+// 最好在加入间隔加色样式之后再添加
+
+.table-hover {
+  > tbody > tr:hover {
+    > td,
+    > th {
+      background-color: @table-bg-hover;
+    }
+  }
+}
+
+//表格文字对齐控制
+.table-centered{
+  > thead > tr,
+  > tbody > tr,
+  > tfoot > tr{
+    > th,
+    > td{
+      text-align: center;
+      &.text-left{
+        .text-left;
+      }
+      &.text-right{
+        .text-right;
+      }
+      &.text-v-top{
+        vertical-align: top;
+      }
+      &.text-v-bottom{
+        vertical-align: bottom;
+      }
+    }
+  }
+}
+
+
+
+// Table backgrounds
+//
+// Exact selectors below required to override `.table-striped` and prevent
+// inheritance to nested tables.
+
+// Generate the contextual variants
+.table-row-variant(active; @table-bg-active);
+.table-row-variant(success; @state-success-bg);
+.table-row-variant(info; @state-info-bg);
+.table-row-variant(warning; @state-warning-bg);
+.table-row-variant(danger; @state-danger-bg);
+
+
+//表格中限制表单样式
+.table{
+  .btn{
+    margin-right: 3px;
+    .button-size(@padding-xs-vertical; @padding-xs-horizontal; @font-size-small; @line-height-small; @border-radius-small);
+  button&{
+    .button-height(@font-size-small; @line-height-small; (@padding-xs-vertical + 0.5));
+  }
+  }
+  .form-control{
+    height: (@line-height-computed - 4);
+    padding: 4px 6px;
+  }
+  select.form-control{
+    height: 24px;
+    line-height: 22px;
+  }
+  .select-col{
+    width: 40px;
+    text-align: center;
+  }
+  .checkbox{
+    padding: 2px 0;
+  }
+}

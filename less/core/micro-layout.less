@@ -1,0 +1,212 @@
+//微布局 list-item布局结构
+//内部布局结构（微布局结构）
+
+//纵向布局
+.vertical{
+  .item{
+    display: block;
+    margin-bottom: @padding-base-vertical;
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+}
+.horizontal{
+  .horizontal();
+}
+
+//横向布局-顶部对齐
+.horizontal-v-top{
+	.item{
+		vertical-align: top;
+	}
+}
+
+//组织结构
+//*
+//* html:
+//* *.list>.list-vertical/.list-horizonal>.item
+
+.list{
+  .item-input{
+    .input-label,.input-content{
+      vertical-align: top;
+    }
+    .input-label{
+      display: inline-block;
+      margin-bottom: 0;
+      *height: @line-height-computed;
+      line-height: @line-height-computed;
+    }
+  }
+}
+
+//纵向布局结构
+.list-vertical{
+  //组织结构单元
+  .item-input{
+    position: relative;
+    min-height: @form-control-height-computed + @input-item-padding * 2;
+    padding-left: @item-label-width-normal;
+    //表单输入标题
+    .input-label{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: @item-label-width-normal;
+      padding: (@input-item-padding + @padding-base-vertical + 1) 0;
+      text-align: right;
+      vertical-align: top;
+    }
+    //表单输入内容容器
+    .input-content{
+      min-height: @form-control-height-computed;
+      _height: @form-control-height-computed;
+      padding: @input-item-padding;
+    }
+
+  }
+}
+
+
+
+
+//纵向布局表单尺寸设置
+//compact
+.list-vertical-compact{
+  .item-input{
+    padding-left: @item-label-width-compact;
+    .input-label{
+      width: @item-label-width-compact;
+    }
+  }
+}
+//normal
+//large
+.list-vertical-large{
+  .item-input{
+    padding-left: @item-label-width-large;
+    .input-label{
+      width: @item-label-width-large;
+    }
+  }
+}
+
+
+//横向布局结构
+.list-horizontal{
+  .horizontal();
+  position: relative;
+  _width: 100%;
+  &:last-child{
+    margin-bottom: -5px;
+  }
+  .item-input{
+    margin-bottom: 9px;
+    .input-label{
+      width: auto;
+      padding: (@padding-base-vertical + 1) 0;
+      padding-left: (@padding-base-vertical / 2);
+    }
+    .input-content{
+      position: relative;
+      top: -1px;
+      *top: 0;
+      display: inline-block;
+      *display: inline;
+      *zoom: 1;
+      select{
+        position: relative \9;
+        top: 1px \9;
+      }
+    }
+  }
+}
+
+
+//横向布局表单尺寸设置
+//compact
+.list-horizontal-compact{
+  .item-input{
+    .input-label{
+      width: @item-label-width-compact;
+    }
+  }
+}
+//normal
+
+.list-horizontal-normal{
+  .item-input{
+    .input-label{
+      width: @item-label-width-normal;
+    }
+  }
+}
+//large
+.list-horizontal-large{
+  .item-input{
+    .input-label{
+      width: @item-label-width-large;
+    }
+  }
+}
+
+
+//带有边线的结构，横向不可用
+.list-bordered{
+  border: 2px solid @form-border-striped-color;
+  .item-input{
+    border-bottom: 1px solid @form-border-striped-color;
+    &:last-child{
+      border-bottom:  none;
+    }
+  }
+}
+//带有颜色区分的结构，横向不可用
+.list-striped{
+  .item-input{
+    border-bottom: 1px solid #FFF;
+    background-color: @form-border-striped-color;
+	    .input-content{
+	      position: relative;
+	      background-color: #fff;
+	      border-bottom: 1px solid #F2F2F2;
+	      margin-bottom: -1px;
+	      z-index: 3;
+	    }
+	    &:last-child .input-content{
+	    	margin-bottom: 0;
+	    }
+    }
+}
+
+.list{
+  //合理化checkbox的样式
+  .vertical .checkbox{
+    margin-bottom: 0;
+  }
+  .vertical p{
+    &:first-child{
+      margin-top: 5px;
+    }
+  }
+}
+
+//表单按钮样式
+.form-btn-content{
+  text-align: center;
+  margin-bottom: @line-height-computed;
+}
+
+//检索表单结构样式
+.form-search-content{
+  position: relative;
+  padding-right: 60px!important;
+  padding-bottom: 4px!important;
+  & > .search-submit{
+    position: absolute;
+    top: 9px;
+    right: 10px;
+  }
+}
+

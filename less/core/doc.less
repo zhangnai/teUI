@@ -1,0 +1,31 @@
+.example-content{
+	position: relative;
+	padding: 30px 15px 15px;
+	margin-bottom: 20px;
+	border: 1px solid #DDD;
+	.border-radius(3px);
+	&:before{
+		display: inline-block;
+		position: absolute;
+		top: 4px;
+		left: 14px;
+		color: #CCC;
+		font-size: 14px;
+		font-weight: 500;
+		content: "EXAMPLE"
+	}
+}
+
+.example-content{
+	table.doc{
+		background: url('../images/blueprint-dark.png');
+		border-left: 3px solid rgba(0, 83, 159, 0.65);
+	}
+}
+
+.index-demo-list{
+	margin-bottom: @line-height-computed;
+	& > .item{
+		margin-right: 6px;
+	}
+}

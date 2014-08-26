@@ -1,0 +1,6 @@
+//文字垂直居中对齐（line-height = height）
+.text-vertical-middle(@height){
+	height: @height;
+	line-height: @height;
+	*line-height: (@height - 2);//for IE7-
+}

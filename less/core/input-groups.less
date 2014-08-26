@@ -1,0 +1,133 @@
+// INPUT GROUPS
+// ------------
+
+// Allow us to put symbols and text within the input field for a cleaner look
+.input-append,
+.input-prepend {
+  display: inline-block;
+  .ie-inline-block();
+  vertical-align: middle;
+  font-size: 0; // white space collapse hack
+  white-space: nowrap; // Prevent span and input from separating
+  *zoom: 1;
+
+  // Reset the white space collapse hack
+  .form-control,
+  .uneditable-input,
+  .dropdown-menu,
+  .popover {
+    font-size: @font-size-base;
+  }
+
+  .form-control,
+  .uneditable-input {
+    position: relative; // placed here by default so that on :focus we can place the input above the .add-on for full border and box-shadow goodness
+    margin-bottom: 0; // prevent bottom margin from screwing up alignment in stacked forms
+    *margin-left: 0;
+    vertical-align: top;
+    .border-radius(0 @border-radius-base @border-radius-base 0);
+    // Make input on top when focused so blue border and shadow always show
+    &:focus {
+      z-index: 2;
+    }
+  }
+  .add-on {
+    display: inline-block;
+    *position: relative;
+    *top: 1px;
+    width: auto;
+    height: @line-height-computed;
+    min-width: 16px;
+    padding: 4px 5px;
+    font-size: @font-size-base;
+    font-weight: normal;
+    line-height: @line-height-computed;
+    text-align: center;
+    text-shadow: 0 1px 0 @white;
+    background-color: @btn-default-bg;
+    border: 1px solid @input-border;
+  }
+  .add-on,
+  .btn,
+  .btn-group > .dropdown-toggle {
+    vertical-align: top;
+    .border-radius(0);
+  }
+  .btn{
+    *position: relative;
+    *top: 1px;
+    *left: -2px;
+    height: @line-height-computed;
+    padding: 4px 5px;
+    min-width: 16px;
+  }
+  .active {
+    background-color: lighten(@brand-success, 30);
+    border-color: @brand-success;
+  }
+  .form-control,
+  .uneditable-input,
+  .add-on,
+  .btn{
+    *float: left;
+  }
+}
+
+.input-prepend {
+  .add-on,
+  .btn {
+    margin-right: -1px;
+  }
+  .add-on:first-child,
+  .btn:first-child {
+    // FYI, `.btn:first-child` accounts for a button group that's prepended
+    .border-radius(@border-radius-base 0 0 @border-radius-base);
+  }
+}
+
+.input-append {
+  .form-control,
+  .uneditable-input {
+    .border-radius(@border-radius-base 0 0 @border-radius-base);
+    + .btn-group .btn:last-child {
+      .border-radius(0 @border-radius-base @border-radius-base 0);
+      *margin-right: -1px;
+    }
+  }
+  .add-on,
+  .btn,
+  .btn-group {
+    margin-left: -1px;
+    *position: relative;
+    *margin-left: -1px;
+  }
+  .add-on:last-child,
+  .btn:last-child,
+  .btn-group:last-child > .dropdown-toggle {
+    .border-radius(0 @border-radius-base @border-radius-base 0);
+  }
+}
+
+// Remove all border-radius for inputs with both prepend and append
+.input-prepend.input-append {
+  .form-control,
+  .uneditable-input {
+    .border-radius(0);
+    + .btn-group .btn {
+      .border-radius(0 @border-radius-base @border-radius-base 0);
+    }
+  }
+  .add-on:first-child,
+  .btn:first-child {
+    margin-right: -1px;
+    .border-radius(@border-radius-base 0 0 @border-radius-base);
+  }
+  .add-on:last-child,
+  .btn:last-child {
+    margin-left: -1px;
+    .border-radius(0 @border-radius-base @border-radius-base 0);
+  }
+  .btn-group:first-child {
+    margin-left: 0;
+  }
+}

@@ -1,0 +1,11 @@
+.ie-inline-block {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+.inline-block-space-fix {
+  letter-spacing: -4px;
+}
+.inline-block-space-fix .item {
+  letter-spacing: 0;
+}

@@ -1,0 +1,49 @@
+//Pagination
+.pagination-content{
+  position: relative;
+  text-align: center;
+  margin-bottom: @line-height-computed;
+  .clearfix;
+  .pagination{
+    vertical-align: middle;
+    .clearfix;
+    .ie-inline-block();
+    .paginate-button{
+      display: inline-block;
+      height: @line-height-computed;
+      padding: @padding-base-vertical @padding-base-horizontal;
+      border: 1px solid #DDD;
+      line-height: @line-height-computed;
+      float: left;
+      margin-left: -1px;
+      &:hover{
+        text-decoration: none;
+      }
+      &:first-child{
+        margin-left: 0;
+        .border-left-radius(@border-radius-base);
+      }
+      &:last-child{
+        .border-right-radius(@border-radius-base);
+      }
+      &.current,
+      &.active{
+        background-color: @gray-lighter;
+        color: @gray;
+      }
+    }
+  }
+  .pagination-info,
+  .pagination-controls{
+    .ie-inline-block();
+    position: absolute;
+    top: 0;
+  }
+  .pagination-info{
+    left:0;
+  }
+  .pagination-controls{
+    right: 0;
+  }
+}
+

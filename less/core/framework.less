@@ -1,0 +1,41 @@
+
+
+// 框架结构样式
+.page-wrapper{
+	padding: 0 @padding-base-horizontal;
+	margin-bottom: @padding-base-vertical;
+}
+.cols-wrapper{
+	padding: 0 (@padding-base-horizontal / 2);
+	margin-bottom: @padding-base-vertical;
+	&>.layout{
+		width: 100%;
+		.col{
+			vertical-align: top;
+			padding: 0 (@padding-base-horizontal / 2);
+		}
+		&.cols-2{
+			.col{
+				width: 50%;
+			}
+		}
+		&.cols-3{
+			.col{
+				width: 33%;
+			}
+		}
+		&.cols-4{
+			.col{
+				width: 25%;
+			}
+		}
+	}
+}
+.section{
+	padding: 0 @padding-base-horizontal;
+	margin-bottom: @line-height-computed;
+}
+
+
+
+
